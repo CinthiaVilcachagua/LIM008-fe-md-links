@@ -15,13 +15,35 @@ const convertToAbs = (paths) => {
 }
 
 //una condicional
-const mdLinks = (ruta) => {  
-    if(path.isAbsolute(ruta) === false){
-        return console.log(path.resolve(ruta));
+const mdLinks = (path) => {  
+    if(pathIsAbs(path) === false){
+        return console.log(convertToAbs(path));
     }
 }
 mdLinks('test/demo_path.js');
 
-// -- FUNCIONES (Reconociendo archivos o directorios) --
+// -- FUNCIONES (Reconociendo archivos o directorios y extension '.md') --
 const validateAFile = (ruta) => {fs.lstatSync(ruta).isFile ()} //return boolean
-const validateAdirectory = (ruta) => {fs.lstatSync(ruta).isDirectory()} //return boolean
+const validateADirectory = (ruta) => {fs.lstatSync(ruta).isDirectory()} //return boolean
+const isAFileMd = (paths) => {path.extname (paths) === '.md'} //return boolean
+
+const pathsExtractionDirectory = (ruta) => {
+    if(validateADirectory(ruta) === 'true'){
+        //codigo
+    } else {
+        pathsExtractionFile(ruta)
+    }
+} 
+
+const pathsExtractionFile = (path) => {
+    if(validateAFile(path) === 'true'){
+        if(isAFileMd === 'true'){
+            //codigo
+        }
+        else {
+            END //remplazar por terminar.
+        }
+    } else {
+        END //remplazar por terminar.
+    }
+}
