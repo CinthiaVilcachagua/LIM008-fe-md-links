@@ -15,9 +15,9 @@ const mdLinks = (path) => {
 mdLinks('test/demo_path.js'); */
 
 // -- FUNCIONES (Reconociendo archivos o directorios y extension '.md') --
-export const validateAFile = (ruta) => {fs.lstatSync(ruta).isFile ()} //return boolean
-export const validateADirectory = (ruta) => {fs.lstatSync(ruta).isDirectory()} //return boolean
-export const isAFileMd = (paths) => {path.extname (paths) === '.md'} //return boolean
+export const validateAFile = ruta => fs.statSync(ruta).isFile() //return boolean
+export const validateADirectory = ruta => fs.statSync(ruta).isDirectory() //return boolean
+export const isAFileMd = paths => path.extname (paths) === '.md' //return boolean
 /*
 const pathsExtractionDirectory = (ruta) => {
     if(validateADirectory(ruta) === 'true'){

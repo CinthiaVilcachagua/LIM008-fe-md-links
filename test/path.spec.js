@@ -21,3 +21,30 @@ describe('convertToAbs', () => {
         expect(convertToAbs('test//demo_path.js')).toBe("C:\\Users\\Laboratoria\\Documents\\Laboratoria\\Proyecto 4\\LIM008-fe-md-links\\test\\demo_path.js")
     })
 });
+
+describe('validateAFile', () => {
+    it('deberia ser una función', () => {
+        expect(typeof validateAFile).toBe('function')
+    })
+    it('deberia ser un archivo', () => {
+        expect(validateAFile("C:\\Users\\Laboratoria\\Documents\\Laboratoria\\Proyecto 4\\LIM008-fe-md-links\\test\\Prueba\\nodo 1\\nodo 2\\index.log")).toBe(true)
+    })
+});
+
+describe('validateADirectory', () => {
+    it('deberia ser una función', () => {
+        expect(typeof validateADirectory).toBe('function')
+    })
+    it('deberia ser un directorio', () => {
+        expect(validateADirectory("C:\\Users\\Laboratoria\\Documents\\Laboratoria\\Proyecto 4\\LIM008-fe-md-links\\test\\Prueba\\nodo 1")).toBe(true)
+    })
+})
+
+describe('isAFileMd', () => {
+    it('deberia ser una función', () => {
+        expect(typeof isAFileMd).toBe('function')
+    })
+    it('deberia retornar true si tiene la extension md', () => {
+        expect(isAFileMd("C:\\Users\\Laboratoria\\Documents\\Laboratoria\\Proyecto 4\\LIM008-fe-md-links\\test\\Prueba\\nodo 1\\nodo 2\\archive.md")).toBe(true)
+    })
+});
