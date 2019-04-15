@@ -1,5 +1,7 @@
 const path = require('path');
 const fs = require('fs');
+// --- VALIDANDO UNA RUTA(existe o no) ---
+export const validateToPath = paths => fs.existsSync(paths); //return boolean
 
 // -- ARMANDO LAS FUNCIONES (reconocer y convertir) --
 export const pathIsAbs = paths => path.isAbsolute(paths) //return boolean
@@ -10,7 +12,7 @@ export const validateAFile = ruta => fs.statSync(ruta).isFile() //return boolean
 export const validateADirectory = ruta => fs.statSync(ruta).isDirectory() //return boolean
 export const isAFileMd = paths => path.extname (paths) === '.md' //return boolean
 
-  const extractionMdFiles = (paths) => {
+export const extractionMdFiles = (paths) => {
     let arrayPaths = [];
     //if(validateADirectory(paths) === true){
         const arrayNameFiles = fs.readdirSync(paths);
@@ -27,4 +29,4 @@ export const isAFileMd = paths => path.extname (paths) === '.md' //return boolea
         })
     return arrayPaths;
   } 
-  console.log(extractionMdFiles("C:\\Users\\Laboratoria\\Documents\\Laboratoria\\Proyecto 4\\LIM008-fe-md-links\\test\\Prueba\\nodo 2"))
+  console.log(extractionMdFiles("C:\\Users\\Laboratoria\\Documents\\Laboratoria\\Proyecto 4\\LIM008-fe-md-links\\test\\Prueba\\nodo 1\\nodo 2"))
