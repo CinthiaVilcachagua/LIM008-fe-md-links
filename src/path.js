@@ -14,19 +14,19 @@ export const isAFileMd = paths => path.extname (paths) === '.md' //return boolea
 
 export const extractionMdFiles = (paths) => {
     let arrayPaths = [];
-    //if(validateADirectory(paths) === true){
+    if(validateADirectory(paths) === true){
         const arrayNameFiles = fs.readdirSync(paths);
-        console.log(arrayNameFiles)
+        //me devuleve solo la parte del nombre del archivo
         arrayNameFiles.forEach(element => {
             let pathToFile = path.join(paths, element);
-            console.log(pathToFile);
+            //une la parte inicial de la ruta con el nombre del archivo;
             if (validateAFile(pathToFile) === true && isAFileMd(pathToFile) === true) {
-            arrayPaths.push(pathToFile);
-            } else if (validateADirectory(pathToFile) === true) {  //validateADirectory(pathToFile) === true
+                arrayPaths.push(pathToFile);
+            } else if (validateADirectory(pathToFile) === true) {  
                 arrayPaths = arrayPaths.concat(extractionMdFiles(pathToFile));
-                console.log(arrayPaths)
             }
         })
+    }
     return arrayPaths;
   } 
-  console.log(extractionMdFiles("C:\\Users\\Laboratoria\\Documents\\Laboratoria\\Proyecto 4\\LIM008-fe-md-links\\test\\Prueba\\nodo 1\\nodo 2"))
+  //console.log(extractionMdFiles("C:\\Users\\Laboratoria\\Documents\\Laboratoria\\Proyecto 4\\LIM008-fe-md-links\\test\\Prueba\\nodo 1"))

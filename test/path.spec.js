@@ -1,5 +1,7 @@
-import {pathIsAbs,convertToAbs, validateAFile, validateADirectory, isAFileMd} from '../src/path.js';
+import {pathIsAbs,convertToAbs, validateAFile, validateADirectory, isAFileMd, extractionMdFiles} from '../src/path.js';
 
+const output = [ 'C:\\Users\\Laboratoria\\Documents\\Laboratoria\\Proyecto 4\\LIM008-fe-md-links\\test\\Prueba\\nodo 1\\archive2.md',
+'C:\\Users\\Laboratoria\\Documents\\Laboratoria\\Proyecto 4\\LIM008-fe-md-links\\test\\Prueba\\nodo 1\\nodo 2\\archive.md' ];
 
 describe('pathIsAbs',() => {
     it('deberia ser una función', () => {
@@ -48,3 +50,12 @@ describe('isAFileMd', () => {
         expect(isAFileMd("C:\\Users\\Laboratoria\\Documents\\Laboratoria\\Proyecto 4\\LIM008-fe-md-links\\test\\Prueba\\nodo 1\\nodo 2\\archive.md")).toBe(true)
     })
 });
+
+describe('extractionMdFiles', () => {
+    it('deberia ser una función', () => {
+        expect(typeof extractionMdFiles).toBe('function')
+    })
+    it('deberia retornarme un array con los archivos con extensión .md', () => {
+        expect(extractionMdFiles("C:\\Users\\Laboratoria\\Documents\\Laboratoria\\Proyecto 4\\LIM008-fe-md-links\\test\\Prueba\\nodo 1")).toEqual(output)
+    })
+})
